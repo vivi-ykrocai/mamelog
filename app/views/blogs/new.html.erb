@@ -1,0 +1,12 @@
+<div class="contents row">
+  <div class="container">
+    <%= form_for(@blog) do |f| %>
+      <h3>
+        投稿する
+      </h3>
+      <%= f.text_area :text, placeholder: "ブログを書いてね", class: "textarea" %>
+      <%= f.text_field :image, placeholder: "画像があるならURLを入れてね" %>
+      <%= f.submit "送信する", class: "btn waves-effect waves-light yellow darken-2"%>
+    <% end %>
+  </div>
+</div>

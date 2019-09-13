@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>まめログ</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+
+  <body>
+    <nav class="yellow darken-2">
+      <div class="nav-wrapper">
+        <a href="/blogs" class="brand-logo"><i class="material-icons left">wb_sunny</i>Mame log (・ω・)<i class="material-icons right">wb_sunny</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><a href="/users/<%= current_user.id %>">マイページ</a></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><a href="/blogs/new">投稿する</a></li>
+        <% else %>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+     
+    <div class="back-image">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+</html>

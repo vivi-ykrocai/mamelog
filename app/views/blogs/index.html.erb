@@ -1,0 +1,11 @@
+<div class="contents row">
+  <% @blogs.each do |blog| %>
+  <div class="card  yellow lighten-4">
+    <div class="card-content black-text">
+      <span class="card-title">~ Diary ~</span>
+      <%= render partial: "blog", locals: { blog: blog }%>
+    </div>
+  </div>
+  <% end %>
+  <%= paginate(@blogs) %>
+</div>

@@ -1,0 +1,80 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require material_icons
+ *= require_self
+ *= require_tree .
+ */
+ 
+@import "./reset";
+@import "materialize";
+
+@font-face{
+  font-family: "03SmartFontUI";
+  src: url('03SmartFontUI.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  font-family: 'Osaka－等幅', 'Osaka-Mono';
+}
+
+.textarea {
+  resize: none;
+  width: 700px;
+  height: 200px;
+}
+
+.back-image {
+  background-image: url("https://www.photolibrary.jp/mhd4/img532/s-2017070615571530066.jpg");
+  background-size: cover;
+  height: 100vh;
+  min-height: 100%;
+  overflow: scroll;
+}
+
+.content_post {
+  width: 850px;
+  height: 400px;
+  color: #fff;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+}
+
+.contents.row {
+  height: 100vh;
+}
+
+.more {
+  position: absolute;
+  cursor: pointer;
+  right: 50px;
+  height: 100px;
+  width: 80px;
+  text-align: right;
+  &:hover ul.more_list {
+    display: block;
+  }
+}
+
+.brand-logo {
+  margin-left: 20px;
+}
+
+.card-title {
+  font-size: 100px;
+}
+
+.btn.waves-effect.waves-light.yellow.darken-2 {
+  margin: 5px 0px;
+}

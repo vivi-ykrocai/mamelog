@@ -1,0 +1,24 @@
+<div class="content_post" style="background-image: url(<%= blog.image %>);">
+  <div class="more">
+  <span><%= image_tag 'hanepenn1.png', size: '40x40' %></span> 
+    <ul class="more_list">
+    <li>
+      <%= link_to '詳細', "/blogs/#{blog.id}", method: :get, class: "btn waves-effect waves-light yellow darken-2" %>
+    </li>
+    <% if user_signed_in? && current_user.id == blog.user_id %>
+      <li>
+        <%= link_to '編集', "/blogs/#{blog.id}/edit", method: :get, class: "btn waves-effect waves-light yellow darken-2" %>
+      </li>
+      <li>
+        <%= link_to '削除', "/blogs/#{blog.id}", method: :delete, class: "btn waves-effect waves-light yellow darken-2" %>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div> 
+  <%= simple_format(blog.text) %>
+  <span class="name">
+    <a href="/users/<%= blog.user_id %>">
+      <span>投稿者</span><%= blog.user.nickname %>
+    </a>
+  </span>

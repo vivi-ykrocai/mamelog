@@ -1,0 +1,29 @@
+<div class ="contents row">
+  <div class="card  yellow lighten-4">
+    <div class="card-content black-text">
+    <span class="card-title">~ Diary ~</span>
+      <div class="content_post" style="background-image: url(<%= @blog.image %>);">
+        <% if user_signed_in? && current_user.id == @blog.user_id %>
+          <div class="more">
+            <span><%= image_tag 'hanepenn1.png', size: '30x30' %></span>
+          <ul class="more_list">
+            <li>
+              <%= link_to '編集', "/blogs/#{@blog.id}/edit", method: :get, class: "btn waves-effect waves-light yellow darken-2" %>
+            </li>
+            <li>
+              <%= link_to '削除', "/blogs/#{@blog.id}", method: :delete, class: "btn waves-effect waves-light yellow darken-2" %>
+            </li>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+      <%= simple_format(@blog.text) %>
+      <span class="name">
+        <a href="/users/<%= @blog.user.id %>">
+          <span>投稿者</span><%= @blog.user.nickname %>
+        </a>
+      </span>
+    </div>
+  </div>
+</div>
+
